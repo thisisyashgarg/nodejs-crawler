@@ -21,7 +21,11 @@ const noOfPages = 3; // no of pages to be crawled
             const targetURL = `${url}?page=${i}`; //dynamic url 
             await page.goto(targetURL);
             await page.waitForSelector('tr'); 
-            const TDS = await page.$$('tr td'); //this works as query selector all, $ - querySelector
+
+            const TDS = await page.$$('tr td'); 
+            //extracting all the targeted elements 
+            //this works as query selector all, $ - querySelector
+
             for(let i = 0; i < TDS.length-2; i+=3){
                 const schema = {
                     date: (await (await TDS[i].getProperty('textContent')).jsonValue()).trim(),
@@ -38,13 +42,13 @@ const noOfPages = 3; // no of pages to be crawled
                 console.log(err)
             }
             console.log('data added')
-        })
-        console.log('working fine')
+        });
+        console.log('Everything went well')
 
         //closing the browser
         await browser.close();
     }
-    
+
     catch (err){
         console.log(`our error: ${err}`)
     }
