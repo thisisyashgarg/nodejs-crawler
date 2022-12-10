@@ -2,8 +2,8 @@
   "name": "nodejs-crawler",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "type": "module",
+  "main": "test.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
